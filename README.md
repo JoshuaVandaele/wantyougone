@@ -1,6 +1,6 @@
 # Want You Gone
 
-This is a recreation of Portal 2's end credits scene, to be ran inside a terminal.
+This is a recreation of Portal 2's end credits scene, to be ran inside a terminal.  
 This should work with most terminals that properly implement Sixels. Konsole has a bug which may cause colors to break.
 
 ## License
