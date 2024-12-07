@@ -4,6 +4,7 @@ use widgets::typewriter::{TypeWriter, TypedLine};
 
 use std::{
     io::{self, Cursor},
+    process,
     time::{Duration, Instant},
 };
 
@@ -86,7 +87,10 @@ fn main() -> io::Result<()> {
     let mut picker = match Picker::from_query_stdio() {
         Ok(picker) => picker,
         Err(e) => {
-            panic!("Error creating picker: {}", e);
+            println!(
+                "Error determining graphics capabilities of the terminal: {e} (Does your terminal support Sixel?)"
+            );
+            process::exit(1);
         }
     };
 
@@ -98,7 +102,7 @@ fn main() -> io::Result<()> {
     {
         Ok(img) => img,
         Err(e) => {
-            panic!("Error decoding image: {} (Are you using Windows?)", e);
+            panic!("Error decoding image: {e} (Are you using Windows?)");
         }
     };
 
